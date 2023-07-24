@@ -4,9 +4,17 @@ import './styles.css'
 function App() {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState(0);
-  const [items, setItems] = useState([]);
   const [showForm, setShowForm] = useState(true);
+  const [items, setItems] = useState(() => {
+    const localValue = localStorage.getItem("items");
+    if(localValue == null) return [];
+    return JSON.parse(localValue);
+  });
 
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items])
+  
   function handleSubmit(e) {
     e.preventDefault();
 
