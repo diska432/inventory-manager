@@ -10,14 +10,11 @@ function App() {
     if(localValue == null) return [];
     return JSON.parse(localValue);
   });
-<<<<<<< HEAD
 
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(items));
   }, [items])
   
-=======
->>>>>>> 8de7f306bb3c36b2de05b6e3f98104ba401ab354
 
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(items));
